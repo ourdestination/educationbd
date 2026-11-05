@@ -1151,16 +1151,16 @@ details.dd>.ddb{padding:4px 18px 16px;border-top:1px solid var(--line)}
         <div class="search-fields"><input id="manualHeaderLookup" aria-label="আবেদন নম্বর" placeholder="আবেদন নম্বর (MAN-...)" autocomplete="off"><button type="button" class="btn" data-act="manualheadersearch">🔎 খুঁজুন / প্রিন্ট</button></div>
       </div>
       <div id="manualStatusBox" role="status" style="display:none;margin:0 0 14px"></div>
-      <h2 style="margin:8px 0 6px"><span class="hdT">প্রধান শিক্ষক / অধ্যক্ষ</span> বরাবর অনলাইন আবেদন</h2>
-      <p class="sub" style="margin:0 0 18px">নিচের পূর্ণ ফর্মটি পূরণ করে <span class="hdT">প্রধান শিক্ষক / অধ্যক্ষ</span> বরাবর আবেদন জমা দিন। আবেদন নম্বরটি সংরক্ষণ করুন। অনুমোদনের পর স্বাক্ষরিত কপি আবেদন নম্বর দিয়ে খুঁজে প্রিন্ট করা যাবে।</p>
+      <div class="row" style="justify-content:space-between;align-items:center;gap:12px;margin:8px 0 6px"><h2 style="margin:0"><span class="hdT">প্রধান শিক্ষক / অধ্যক্ষ</span> বরাবর অনলাইন আবেদন</h2><div class="row"><input id="manUniqueLookup" placeholder="শিক্ষার্থী / শিক্ষক / কর্মচারী আইডি" aria-label="ইউনিক আইডি" style="width:min(240px,55vw)"><button type="button" class="btn" id="manUniqueSearch">🔎 সার্চ</button></div></div><div id="manUniqueStatus" class="hint" role="status" style="margin-bottom:12px"></div>
+      <p class="sub" style="margin:0 0 18px">শিক্ষার্থী, শিক্ষক, কর্মচারী ও অভিভাবক সবাই আবেদন করতে পারবেন। অভিভাবক আবেদন করলে নিজের পরিচয় ও সংশ্লিষ্ট শিক্ষার্থীর তথ্য আবেদনের বিস্তারিত অংশে লিখুন। ইউনিক আইডি না থাকলেও ম্যানুয়ালি আবেদন করা যাবে।</p><p class="sub" style="margin:0 0 18px">নিচের পূর্ণ ফর্মটি পূরণ করে <span class="hdT">প্রধান শিক্ষক / অধ্যক্ষ</span> বরাবর আবেদন জমা দিন। আবেদন নম্বরটি সংরক্ষণ করুন। অনুমোদনের পর স্বাক্ষরিত কপি আবেদন নম্বর দিয়ে খুঁজে প্রিন্ট করা যাবে।</p>
       <form id="manualF" autocomplete="on">
         <div class="fg">
           <div><label>Institution type *</label><select name="type" id="manType" required><option value="">প্রতিষ্ঠানের ধরন নির্বাচন করুন</option><option value="primary">Primary</option><option value="school">School (Secondary)</option><option value="college">College (Higher Secondary)</option><option value="coaching">Private Institute (Coaching Center)</option></select></div>
           <div><label>প্রতিষ্ঠানের নাম *</label><select name="school" id="manSchool" required disabled><option value="">আগে প্রতিষ্ঠানের ধরন বাছুন</option></select></div>
-          <div><label>আবেদনকারীর নাম *</label><input name="name" required maxlength="100" placeholder="পূর্ণ নাম"></div>
-          <div><label>শ্রেণি *</label><select name="class" id="manClass" required><option value="">আগে প্রতিষ্ঠানের ধরন বাছুন</option></select></div>
+          <div><label>আবেদনকারীর ধরন *</label><select name="personType" id="manPersonType" required><option value="student">শিক্ষার্থী</option><option value="teacher">শিক্ষক</option><option value="staff">কর্মচারী</option><option value="guardian">অভিভাবক</option></select></div><div><label>ইউনিক আইডি (থাকলে; অভিভাবকের জন্য ঐচ্ছিক)</label><input name="uniqueId" id="manUniqueId" maxlength="100" placeholder="ইউনিক আইডি"></div><div><label>আবেদনকারীর নাম *</label><input name="name" required maxlength="100" placeholder="পূর্ণ নাম"></div>
+          <div id="manClassWrap"><label>শ্রেণি *</label><select name="class" id="manClass" required><option value="">আগে প্রতিষ্ঠানের ধরন বাছুন</option></select></div><div id="manTeacherDesignationWrap" style="display:none"><label>পদবি *</label><input name="designation" id="manDesignation" maxlength="100" placeholder="যেমন: সহকারী শিক্ষক"></div><div id="manTeacherDepartmentWrap" style="display:none"><label>বিষয় / বিভাগ / শাখা</label><input name="department" maxlength="100" placeholder="বিষয় / বিভাগ"></div>
           <div><label>লিঙ্গ *</label><select name="gender" required><option value="">নির্বাচন করুন</option><option>ছেলে</option><option>মেয়ে</option><option>অন্যান্য</option></select></div>
-          <div><label>পিতা / মাতা / অভিভাবকের নাম *</label><input name="guardian" required maxlength="100"></div>
+          <div id="manGuardianWrap"><label>পিতা / মাতা / অভিভাবকের নাম *</label><input name="guardian" id="manGuardian" required maxlength="100"></div>
           <div><label>মোবাইল নম্বর *</label><div class="ph"><span>+880</span><input name="phone" required maxlength="10" inputmode="numeric" pattern="1[3-9][0-9]{8}" placeholder="১০ সংখ্যা" title="+880 এর পরে ১০ সংখ্যার মোবাইল নম্বর দিন"></div></div>
           <div><label>জন্ম তারিখ (ঐচ্ছিক)</label><input name="dob" type="date"></div>
           <div class="w"><label>ঠিকানা *</label><input name="address" required maxlength="300" placeholder="গ্রাম/রোড, উপজেলা, জেলা"></div>
@@ -2337,7 +2337,7 @@ function openWorkspace(uid, p) {
   dataUns.push(onValue(ref(db, `institutionData/${uid}/results`), s => { RS = s.val() || {}; }, () => {}));
   dataUns.push(onValue(ref(db, `institutionData/${uid}/examInstr`), s => { EI = typeof s.val() === 'string' ? s.val() : ''; }, () => {}));
   TC = {}; TA = {}; TP = {}; TL = {}; tchDirty = false;
-  [['teachers', v => TC = v], ['teacherAtt', v => TA = v], ['teacherPay', v => TP = v], ['teacherLeave', v => TL = v]].forEach(([k, f]) => dataUns.push(onValue(ref(db, `institutionData/${uid}/${k}`), s => { f(s.val() || {}); if (ctx === uid && page === 'tch' && !$('#dlg').open && !tchDirty) render(); }, () => {})));
+  [['teachers', v => TC = v], ['teacherAtt', v => TA = v], ['teacherPay', v => TP = v], ['teacherLeave', v => TL = v]].forEach(([k, f]) => dataUns.push(onValue(ref(db, `institutionData/${uid}/${k}`), s => { f(s.val() || {}); if (ctx === uid && !$('#dlg').open && !tchDirty) { if (page === 'tch') { const list = $('#list'); if (list && typeof tchBody === 'function') { list.innerHTML = tchBody(); const pending = listOf(TL).filter(x => x.status === 'pending').length; const tab = document.querySelector('[data-act="tchtab"][data-t="leave"]'); if (tab) tab.textContent = 'ছুটি' + (pending ? ' (' + bn(pending) + ')' : ''); } else render(); } else if (page === 'head' && headIn && !(document.activeElement && /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName))) render(); else if (page === 'dash') render(); } }, () => {})));
   show('v-app'); render();
 }
 function render() { if (!me || !$('#v-app').classList.contains('on')) return; if (!ctx) return me.isAdmin ? renderAdmin() : null; renderInst(); }
@@ -5162,6 +5162,26 @@ document.addEventListener('change', async e => {
   catch (err) { toast(err.message); e.target.value = ''; }
 });
 
+function manualPersonSync() {
+  const kind = document.querySelector('#manPersonType')?.value || 'student';
+  const student = kind === 'student', employee = kind === 'teacher' || kind === 'staff';
+  for (const [id,visible] of [['manClassWrap',student],['manGuardianWrap',student],['manTeacherDesignationWrap',employee],['manTeacherDepartmentWrap',employee]]) {
+    const el=document.getElementById(id); if(el) el.style.display=visible?'':'none';
+  }
+  for (const [id,required] of [['manClass',student],['manGuardian',student],['manDesignation',employee]]) {
+    const el=document.getElementById(id); if(el) el.required=required;
+  }
+}
+document.addEventListener('click', e => {
+  if(e.target.closest('#manUniqueSearch')) {
+    const id=String(document.getElementById('manUniqueLookup')?.value||'').trim();
+    const status=document.getElementById('manUniqueStatus');
+    if(!id) { status.textContent='প্রথমে ইউনিক আইডি লিখুন।'; return; }
+    document.getElementById('manUniqueId').value=id;
+    status.textContent='ইউনিক আইডি বসানো হয়েছে। নিরাপদ অটোফিল চালু করতে পরিচয়-যাচাইকৃত ডিরেক্টরি ও Firebase Rules সংযোগ প্রয়োজন; আপাতত বাকি তথ্য নিজে পূরণ করুন।';
+  }
+});
+const smpTeacherPublicId = key => 'TCH-' + String(key||'').replace(/[^a-zA-Z0-9]/g,'').slice(-12).toUpperCase();
 let manualLast = null; /* সর্বশেষ জমা দেওয়া ম্যানুয়াল আবেদন — জমার পরপরই প্রিন্টের জন্য */
 function manualFillSchools() {
   const t = $('#manType'), sel = $('#manSchool'), cls = $('#manClass'); if (!t || !sel || !cls) return;
@@ -5240,7 +5260,7 @@ body{font-family:'Noto Serif Bengali','Anek Bangla','Hind Siliguri','Noto Sans B
   w.document.close();
 }
 document.addEventListener('change', e => {
-  if (e.target.id === 'manType') manualFillSchools();
+  if (e.target.id === 'manType') manualFillSchools(); if (e.target.id === 'manPersonType') manualPersonSync();
 });
 document.addEventListener('submit', async e => {
   if (e.target.id !== 'manualF') return;
@@ -5250,14 +5270,18 @@ document.addEventListener('submit', async e => {
     if (!['primary','school','college','coaching'].includes(f.type)) throw new Error('প্রতিষ্ঠানের ধরন নির্বাচন করুন');
     if (!sid || !schools[sid] || instType(schools[sid]) !== f.type) throw new Error('তালিকা থেকে সঠিক প্রতিষ্ঠান নির্বাচন করুন');
     if (!validPhone10(ph)) throw new Error('সঠিক ১০ সংখ্যার মোবাইল নম্বর দিন');
-    if (ci < 0 || !admClassOpts(f.type).includes(`value="${f.class}"`)) throw new Error('প্রতিষ্ঠানের ধরন অনুযায়ী শ্রেণি নির্বাচন করুন');
+    if (f.personType === 'student' && (ci < 0 || !admClassOpts(f.type).includes(`value="${f.class}"`))) throw new Error('প্রতিষ্ঠানের ধরন অনুযায়ী শ্রেণি নির্বাচন করুন');
+    if (['teacher','staff'].includes(f.personType) && !String(f.designation||'').trim()) throw new Error('পদবি লিখুন');
     if (String(f.applicationText || '').trim().length < 20) throw new Error('আবেদনের বিস্তারিত অন্তত ২০ অক্ষরে লিখুন');
     const suffix = Math.random().toString(36).slice(2,6).toLowerCase() || 'a123';
     const id = `${ph}-${ci}-${suffix}`, regNo = 'MAN-' + Date.now().toString(36).toUpperCase();
-    const payload = { name: String(f.name).trim(), gender: f.gender, class: f.class, phone: '+880' + ph, guardian: String(f.guardian).trim(), address: String(f.address).trim(), dob: f.dob || '', status: 'pending', regNo, createdAt: { '.sv': 'timestamp' }, kind: 'manual', subject: String(f.subject).trim(), applicationText: String(f.applicationText).trim(), applicantType: f.type };
+    if (!['student','teacher','staff','guardian'].includes(f.personType)) throw new Error('আবেদনকারীর ধরন নির্বাচন করুন');
+    const typeLabel = {student:'শিক্ষার্থী',teacher:'শিক্ষক',staff:'কর্মচারী',guardian:'অভিভাবক'}[f.personType];
+    // An application reference is NOT a verified staff ID. Staff IDs must be assigned from institution records.
+    const payload = { name: String(f.name).trim(), gender: f.gender, class: f.personType === 'student' ? f.class : typeLabel, personType: f.personType, uniqueId: String(f.uniqueId||'').trim(), designation: ['teacher','staff'].includes(f.personType) ? String(f.designation||'').trim() : '', department: ['teacher','staff'].includes(f.personType) ? String(f.department||'').trim() : '', phone: '+880' + ph, guardian: f.personType === 'student' ? String(f.guardian||'').trim() : '', address: String(f.address).trim(), dob: f.dob || '', status: 'pending', regNo, createdAt: { '.sv': 'timestamp' }, kind: 'manual', subject: String(f.subject).trim(), applicationText: String(f.applicationText).trim(), applicantType: f.type };
     await update(root(), { [`admissionReqs/${sid}/${id}`]: payload, [`manualStatus/${manKey(regNo)}`]: { sid, school: schools[sid].name || '', regNo, status: 'pending', createdAt: { '.sv': 'timestamp' } } });
     manualLast = { x: { ...payload, createdAt: Date.now() }, school: schools[sid].name || '' };
-    form.reset(); manualFillSchools(); result.innerHTML = `✅ আবেদন জমা হয়েছে।<br>প্রতিষ্ঠান: <b>${esc(schools[sid].name)}</b><br>আপনার আবেদন নম্বর: <strong style="font-size:22px">${esc(regNo)}</strong><br>এই নম্বরটি সংরক্ষণ করুন — উপরের “আবেদন নম্বর দিয়ে খুঁজুন” ঘরে এটি দিয়ে যেকোনো সময় আবেদনের অবস্থা (অপেক্ষায় / অনুমোদিত / প্রত্যাখ্যাত) দেখা যাবে। আবেদনের কপি এখনই নিচের বাটন থেকে প্রিন্ট বা PDF করতে পারবেন। ${hdTitle(f.type)} অনুমোদন দিলে প্রতিষ্ঠান থেকে স্বাক্ষরিত কপি প্রিন্ট করা যাবে।<br><button type="button" class="btn" style="margin-top:12px" data-act="manprintnow">🖨 আবেদন প্রিন্ট / PDF</button>`; result.style.display = 'block'; result.scrollIntoView({behavior:'smooth',block:'center'});
+    form.reset(); manualFillSchools(); manualPersonSync(); result.innerHTML = `✅ আবেদন জমা হয়েছে।<br>প্রতিষ্ঠান: <b>${esc(schools[sid].name)}</b><br>আপনার আবেদন নম্বর: <strong style="font-size:22px">${esc(regNo)}</strong><br>এই নম্বরটি সংরক্ষণ করুন — উপরের “আবেদন নম্বর দিয়ে খুঁজুন” ঘরে এটি দিয়ে যেকোনো সময় আবেদনের অবস্থা (অপেক্ষায় / অনুমোদিত / প্রত্যাখ্যাত) দেখা যাবে। আবেদনের কপি এখনই নিচের বাটন থেকে প্রিন্ট বা PDF করতে পারবেন। ${hdTitle(f.type)} অনুমোদন দিলে প্রতিষ্ঠান থেকে স্বাক্ষরিত কপি প্রিন্ট করা যাবে।<br><button type="button" class="btn" style="margin-top:12px" data-act="manprintnow">🖨 আবেদন প্রিন্ট / PDF</button>`; result.style.display = 'block'; result.scrollIntoView({behavior:'smooth',block:'center'});
   } catch (x) { err.textContent = '⚠ ' + errMsg(x); err.style.display = 'block'; err.scrollIntoView({behavior:'smooth',block:'center'}); }
   finally { if (btn) btn.disabled = false; }
 });
@@ -5462,11 +5486,13 @@ async function hashPw(salt, pw) {
 /* ---------- প্রধানের প্যানেল (পাসওয়ার্ড দিয়ে ঢুকতে হয়) ---------- */
 function pHead() {
   const h = ctxProfile.head || {}, all = apList(), pend = all.filter(a => a.status === 'pending' || (a.status === 'approved' && a.ops));
-  const tabs = [['req', 'অনুরোধ' + (pend.length ? ' (' + bn(pend.length) + ')' : '')], ['adm', admNavLbl()], ['hist', 'ইতিহাস'], ['prof', 'প্রোফাইল ও শর্ত']];
+  const leavePending = listOf(TL).filter(x => x.status === 'pending').length;
+  const tabs = [['req', 'অনুরোধ' + (pend.length ? ' (' + bn(pend.length) + ')' : '')], ['leave', 'শিক্ষক-কর্মীর ছুটি' + (leavePending ? ' (' + bn(leavePending) + ')' : '')], ['adm', admNavLbl()], ['hist', 'ইতিহাস'], ['prof', 'প্রোফাইল ও শর্ত']];
   const top = `<div class="panel"><div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:12px"><div class="logoprev" style="margin:0"><span class="logo ${h.photo ? 'has' : ''}" style="width:60px;height:60px">${h.photo ? `<img src="${esc(h.photo)}" alt="" style="object-fit:cover">` : ic('stu')}</span><div><b style="font-size:17px">${esc(h.name || '')}</b><div class="sub">${esc(h.designation || 'প্রতিষ্ঠান প্রধান')}</div></div></div><button type="button" class="btn ghost" data-act="hlock">লক করে বের হোন</button></div>
   <div class="chips" style="margin-top:12px">${tabs.map(([k, l]) => `<button class="${hp === k ? 'on' : ''}" data-act="htab" data-t="${k}">${l}</button>`).join('')}</div></div>`;
   let body = '';
-  if (hp === 'adm') body = admHtml();
+  if (hp === 'leave') { const leaveRows = listOf(TL).sort((a,b) => (b.createdAt||0)-(a.createdAt||0)); body = `<div class="panel flush"><h3 style="padding:18px">শিক্ষক ও কর্মচারীর ছুটির আবেদন</h3><div class="tw"><table><tr><th>আবেদনকারী</th><th>ছুটির ধরন</th><th>তারিখ</th><th>কারণ</th><th>অবস্থা</th><th>সিদ্ধান্ত</th></tr>${leaveRows.map(x => { const t=TC[x.tid]||{}, st=LVS[x.status]||LVS.pending; return `<tr><td>${esc(t.name||'অজ্ঞাত')}<div class="sub">${esc(t.designation||'')}</div></td><td>${esc(x.type||'')}</td><td>${bnDate(x.from)} — ${bnDate(x.to)}</td><td>${esc(x.reason||'—')}</td><td><span class="badge ${st[1]}">${st[0]}</span></td><td>${x.status==='pending'?`<button class="btn sm ok" data-act="tlvok" data-id="${esc(x.id)}">অনুমোদন</button> <button class="btn sm bad" data-act="tlvno" data-id="${esc(x.id)}">প্রত্যাখ্যান</button>`:'—'}</td></tr>`; }).join('')||'<tr><td colspan="6" class="empty">কোনো ছুটির আবেদন নেই</td></tr>'}</table></div></div>`; }
+  else if (hp === 'adm') body = admHtml();
   else if (hp === 'prof') body = headPanelHtml(ctxProfile, true);
   else if (hp === 'hist') {
     const rows = all.filter(a => !(a.status === 'pending' || (a.status === 'approved' && a.ops)));
@@ -5664,11 +5690,11 @@ function tchBody() {
 }
 function tchInfo() {
   const q = (ui.tq || '').toLowerCase(), st = ui.ts || '', all = tchArr();
-  const rows = all.filter(t => (!st || t.status === st) && (!q || [t.name, t.designation, t.subject, t.phone].join(' ').toLowerCase().includes(q)));
+  const rows = all.filter(t => (!st || t.status === st) && (!q || [t.name, t.uniqueId || smpTeacherPublicId(t.id), t.designation, t.subject, t.phone].join(' ').toLowerCase().includes(q)));
   const act = all.filter(t => t.status === 'active');
   return `<div class="kpis sm" style="border-radius:0;border-width:0 0 1px;margin:0"><div class="kpi"><span>মোট শিক্ষক / কর্মী</span><b>${bn(all.length)}</b></div><div class="kpi in"><span>সক্রিয়</span><b>${bn(act.length)}</b></div><div class="kpi ex"><span>মাসে মোট বেতন (সক্রিয়)</span><b>${tk(act.reduce((a, t) => a + (t.salary || 0), 0))}</b></div></div>
   <div class="tw"><table><tr><th>নাম</th><th>ধরন</th><th>পদবী / বিষয়</th><th>মোবাইল</th><th>যোগদান</th><th class="n">মাসিক বেতন</th><th>অবস্থা</th><th></th></tr>
-  ${rows.map(t => `<tr><td><div class="row" style="flex-wrap:nowrap;gap:10px">${t.photo ? `<img src="${esc(t.photo)}" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none">` : `<span style="width:36px;height:36px;border-radius:50%;background:var(--pri-bg);color:var(--pri);display:grid;place-items:center;font-weight:700;flex:none">${esc((t.name || '?').trim().charAt(0))}</span>`}<div><b>${esc(t.name)}</b>${t.qualification ? `<div class="sub">${esc(t.qualification)}</div>` : ''}</div></div></td><td>${t.kind === 'staff' ? 'কর্মচারী' : 'শিক্ষক'}</td><td>${esc(t.designation) || '—'}${t.subject ? ` <span class="sub">(${esc(t.subject)})</span>` : ''}</td><td>${esc(t.phone) || '—'}</td><td>${t.joinDate ? bnDate(t.joinDate) : '—'}</td><td class="n">${tk(t.salary)}</td>
+  ${rows.map(t => `<tr><td><div class="row" style="flex-wrap:nowrap;gap:10px">${t.photo ? `<img src="${esc(t.photo)}" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none">` : `<span style="width:36px;height:36px;border-radius:50%;background:var(--pri-bg);color:var(--pri);display:grid;place-items:center;font-weight:700;flex:none">${esc((t.name || '?').trim().charAt(0))}</span>`}<div><b>${esc(t.name)}</b><div class="sub">ID: ${esc(t.uniqueId || smpTeacherPublicId(t.id))}</div>${t.qualification ? `<div class="sub">${esc(t.qualification)}</div>` : ''}</div></div></td><td>${t.kind === 'staff' ? 'কর্মচারী' : 'শিক্ষক'}</td><td>${esc(t.designation) || '—'}${t.subject ? ` <span class="sub">(${esc(t.subject)})</span>` : ''}</td><td>${esc(t.phone) || '—'}</td><td>${t.joinDate ? bnDate(t.joinDate) : '—'}</td><td class="n">${tk(t.salary)}</td>
   <td><span class="badge b-${t.status === 'active' ? 'active' : 'inactive'}">${t.status === 'active' ? 'সক্রিয়' : 'নিষ্ক্রিয়'}</span></td>
   <td><div class="row"><button class="btn sm" data-act="tpay" data-id="${t.id}">বেতন দিন</button><button class="btn sm ghost" data-act="edittch" data-id="${t.id}">সম্পাদনা</button><button class="btn sm ghost" data-act="deltch" data-id="${t.id}">মুছুন</button></div></td></tr>`).join('') || '<tr><td colspan="8" class="empty"><b>কোনো শিক্ষক / কর্মী পাওয়া যায়নি</b>"নতুন শিক্ষক / কর্মী" চেপে প্রথম জনকে যোগ করুন।</td></tr>'}
   </table></div><div class="sub" style="padding:10px 16px;border-top:1px solid var(--line)">মোট ${bn(rows.length)} জন</div>`;
@@ -5716,8 +5742,9 @@ function openTch(id) {
     async f => {
       const old = id ? TC[id] : null, ph = tenDigits(f.phone);
       if (ph && !validPhone10(ph)) throw new Error('মোবাইল নম্বর +880 এর পরে সঠিক ১০ সংখ্যার হতে হবে');
-      const d = { name: f.name.trim(), kind: f.kind, designation: (f.designation || '').trim(), subject: (f.subject || '').trim(), qualification: (f.qualification || '').trim(), gender: f.gender, phone: ph ? fullPhone(ph) : '', email: (f.email || '').trim(), joinDate: f.joinDate || '', salary: Number(f.salary) || 0, address: (f.address || '').trim(), status: f.status, photo: tchPhoto !== undefined ? tchPhoto : (old && old.photo) || '', createdAt: old ? old.createdAt : Date.now() };
+      const d = { uniqueId: (old && old.uniqueId) || smpTeacherPublicId(id || 'new'), name: f.name.trim(), kind: f.kind, designation: (f.designation || '').trim(), subject: (f.subject || '').trim(), qualification: (f.qualification || '').trim(), gender: f.gender, phone: ph ? fullPhone(ph) : '', email: (f.email || '').trim(), joinDate: f.joinDate || '', salary: Number(f.salary) || 0, address: (f.address || '').trim(), status: f.status, photo: tchPhoto !== undefined ? tchPhoto : (old && old.photo) || '', createdAt: old ? old.createdAt : Date.now() };
       const tid = id || push(ref(db, `${base()}/teachers`)).key;
+      d.uniqueId = (old && old.uniqueId) || smpTeacherPublicId(tid);
       await update(root(), { [`${base()}/teachers/${tid}`]: d });
       toast('সংরক্ষিত হয়েছে');
     });
@@ -5924,7 +5951,7 @@ function tchLeave() {
   return `<div class="kpis sm" style="border-radius:0;border-width:0 0 1px;margin:0"><div class="kpi"><span>মোট আবেদন</span><b>${bn(all.length)}</b></div><div class="kpi du"><span>অপেক্ষমাণ</span><b>${bn(cnt('pending'))}</b></div><div class="kpi in"><span>অনুমোদিত</span><b>${bn(cnt('approved'))}</b></div><div class="kpi ex"><span>প্রত্যাখ্যাত</span><b>${bn(cnt('rejected'))}</b></div></div>
   <div class="tw"><table><tr><th>নাম</th><th>ধরন</th><th>সময়কাল</th><th class="n">দিন</th><th>কারণ</th><th>অবস্থা</th><th></th></tr>
   ${rows.map(x => { const t = TC[x.tid] || {}, st = LVS[x.status] || LVS.pending, days = lvDates(x.from, x.to, x.skip).length;
-    const acts = x.status === 'pending' ? `<button class="btn sm" data-act="tlvok" data-id="${x.id}">অনুমোদন</button><button class="btn sm warn" data-act="tlvno" data-id="${x.id}">প্রত্যাখ্যান</button>` : x.status === 'approved' ? `<button class="btn sm warn" data-act="tlvrev" data-id="${x.id}">বাতিল করুন</button>` : '';
+    const acts = `<span class="sub">সিদ্ধান্ত প্রতিষ্ঠান প্রধানের প্যানেলে</span>`;
     return `<tr><td><b>${esc(t.name || '(মুছে ফেলা)')}</b>${t.designation ? `<div class="sub">${esc(t.designation)}</div>` : ''}</td><td>${esc(x.type || '')}</td><td>${bnDate(x.from)}${x.to && x.to !== x.from ? ' — ' + bnDate(x.to) : ''}${x.skip ? `<div class="sub">${x.skip === 'fri' ? 'শুক্রবার বাদ' : 'শুক্র-শনিবার বাদ'}</div>` : ''}</td><td class="n">${bn(days)}</td><td>${esc(x.reason) || '—'}</td><td><span class="badge ${st[1]}">${st[0]}</span></td><td><div class="row">${acts}<button class="btn sm ghost" data-act="tlvdel" data-id="${x.id}">মুছুন</button></div></td></tr>`; }).join('') || '<tr><td colspan="7" class="empty"><b>কোনো ছুটির আবেদন নেই</b>"+ ছুটির আবেদন" চেপে প্রথমটি যোগ করুন।</td></tr>'}
   </table></div>`;
 }
@@ -5954,19 +5981,20 @@ const lvClear = (x, upd, id) => { lvDates(x.from, x.to, x.skip).forEach(dt => { 
 Object.assign(A, {
   rmtphoto: () => { tchPhoto = ''; const b = $('#tchPhotoBox'); if (b) { b.innerHTML = ic('tch'); b.classList.remove('has'); } const i = $('#tchPhoto'); if (i) i.value = ''; },
   tpayall: () => openTchPayAll(), tlvadd: () => openLeave(),
-  tlvok: async d => {
-    const x = TL[d.id]; if (!x) return; if (!TC[x.tid]) return toast('শিক্ষক / কর্মী পাওয়া যায়নি');
+  tlvok: async d => { if (!(headIn || me.isAdmin)) return toast('শুধুমাত্র প্রতিষ্ঠান প্রধান অনুমোদন বা প্রত্যাখ্যান করতে পারবেন');
+    const x = TL[d.id]; if (!x) return; if (x.status !== 'pending') return toast('এই আবেদনের সিদ্ধান্ত ইতিমধ্যে নেওয়া হয়েছে'); if (!TC[x.tid]) return toast('শিক্ষক / কর্মী পাওয়া যায়নি');
     const upd = { [`${base()}/teacherLeave/${d.id}/status`]: 'approved', [`${base()}/teacherLeave/${d.id}/decidedAt`]: Date.now() };
     lvDates(x.from, x.to, x.skip).forEach(dt => { upd[`${base()}/teacherAtt/${dt}/${x.tid}`] = 'l'; });
     await update(root(), upd); toast('ছুটি অনুমোদিত — হাজিরায় "ছুটি" চিহ্নিত হয়েছে');
   },
-  tlvno: async d => { const x = TL[d.id]; if (!x) return; await update(root(), { [`${base()}/teacherLeave/${d.id}/status`]: 'rejected', [`${base()}/teacherLeave/${d.id}/decidedAt`]: Date.now() }); toast('আবেদন প্রত্যাখ্যাত হয়েছে'); },
-  tlvrev: async d => {
-    const x = TL[d.id]; if (!x) return; if (!confirm('অনুমোদিত ছুটি বাতিল করবেন? হাজিরা থেকে ওই "ছুটি" চিহ্ন সরে যাবে।')) return;
+  tlvno: async d => { if (!(headIn || me.isAdmin)) return toast('শুধুমাত্র প্রতিষ্ঠান প্রধান অনুমোদন বা প্রত্যাখ্যান করতে পারবেন'); const x = TL[d.id]; if (!x) return; if (x.status !== 'pending') return toast('এই আবেদনের সিদ্ধান্ত ইতিমধ্যে নেওয়া হয়েছে'); await update(root(), { [`${base()}/teacherLeave/${d.id}/status`]: 'rejected', [`${base()}/teacherLeave/${d.id}/decidedAt`]: Date.now() }); toast('আবেদন প্রত্যাখ্যাত হয়েছে'); },
+  tlvrev: async d => { if (!(headIn || me.isAdmin)) return toast('শুধুমাত্র প্রতিষ্ঠান প্রধান অনুমোদন বা প্রত্যাখ্যান করতে পারবেন');
+    const x = TL[d.id]; if (!x) return; if (x.status !== 'approved') return toast('শুধু অনুমোদিত ছুটি বাতিল করা যাবে'); if (!confirm('অনুমোদিত ছুটি বাতিল করবেন? হাজিরা থেকে ওই "ছুটি" চিহ্ন সরে যাবে।')) return;
     const upd = { [`${base()}/teacherLeave/${d.id}/status`]: 'rejected', [`${base()}/teacherLeave/${d.id}/decidedAt`]: Date.now() }; lvClear(x, upd);
     await update(root(), upd); toast('ছুটি বাতিল হয়েছে');
   },
   tlvdel: async d => {
+    if (!(headIn || me.isAdmin)) return toast('শুধুমাত্র প্রতিষ্ঠান প্রধান আবেদন মুছতে পারবেন');
     const x = TL[d.id]; if (!x) return; if (!confirm('এই ছুটির আবেদনটি মুছবেন?' + (x.status === 'approved' ? ' হাজিরা থেকে ছুটির চিহ্নও সরে যাবে।' : ''))) return;
     const upd = { [`${base()}/teacherLeave/${d.id}`]: null }; if (x.status === 'approved') lvClear(x, upd);
     await update(root(), upd); toast('মুছে ফেলা হয়েছে');
